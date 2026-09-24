@@ -1,5 +1,6 @@
 from pathlib import Path
 import re
+import shutil
 
 from docx import Document
 from docx.enum.section import WD_SECTION
@@ -12,6 +13,7 @@ from docx.shared import Cm, Inches, Pt
 
 SOURCE = Path("Проект_конкурса_Родной_край_глазами_ребенка.md")
 OUTPUT = Path("Проект_конкурса_Родной_край_глазами_ребенка.docx")
+REGULATION_OUTPUT = Path("Положение_о_конкурсе_Родной_край_глазами_ребенка.docx")
 
 
 def set_cell_shading(cell, fill):
@@ -205,4 +207,13 @@ doc.core_properties.title = "Республиканский конкурс де�
 doc.core_properties.subject = "Проект и положение о конкурсе"
 doc.core_properties.author = "Луганский республиканский центр народного творчества"
 doc.save(OUTPUT)
+shutil.copyfile(OUTPUT, REGULATION_OUTPUT)
+regulation = Document(REGULATION_OUTPUT)
+for paragraph in regulation.paragraphs:
+    if paragraph.text.strip() == "ПРОЕКТ":
+        paragraph.text = "ПОЛОЖЕНИЕ"
+regulation.core_properties.title = "Положение о конкурсе «Родной край — глазами ребенка»"
+regulation.core_properties.author = "Луганский республиканский центр народного творчества"
+regulation.save(REGULATION_OUTPUT)
 print(OUTPUT)
+print(REGULATION_OUTPUT)
