@@ -2,10 +2,10 @@
   --ink: #18352f;
   --green: #173f35;
   --green-soft: #52745e;
-  --red: #a94731;
-  --gold: #d39a37;
-  --blue: #547f81;
-  --cream: #f4eddf;
+  --red: #bd3d2b;
+  --gold: #e2a52d;
+  --blue: #397f91;
+  --cream: #f8e9ce;
   --paper: #fbf8f1;
   --white: #fffdf8;
   --line: rgba(24, 53, 47, .18);
@@ -85,17 +85,24 @@ button { font: inherit; }
 .hero-meta span { display: block; margin-bottom: 4px; color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
 .hero-meta strong { font-family: var(--serif); font-size: 15px; line-height: 1.4; }
 
-.intro { background: var(--paper); }
+.intro { position: relative; background: var(--paper); }
+.intro::before { content: ""; position: absolute; inset: 0 0 auto; height: 9px; background: repeating-linear-gradient(90deg, var(--red) 0 18px, transparent 18px 27px, var(--gold) 27px 45px, transparent 45px 54px, var(--green) 54px 72px, transparent 72px 81px); }
 .intro-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 100px; align-items: start; }
 .section-heading h2, .participation-aside h2, .results-panel h2 { font-size: clamp(45px, 5vw, 72px); }
 .intro-copy { padding-top: 25px; }
 .intro-copy p { max-width: 690px; }
 .intro-copy .lead { margin-top: 0; font-family: var(--serif); font-size: 26px; line-height: 1.42; }
-.institutions { display: grid; grid-template-columns: .9fr 1.1fr; margin-top: 70px; border: 1px solid var(--line); background: var(--cream); }
-.institution-item { display: grid; grid-template-columns: 115px 1fr; gap: 24px; align-items: start; padding: 30px 34px; }
+.institutions { display: grid; grid-template-columns: .9fr 1.1fr; gap: 15px; margin-top: 70px; }
+.institution-item { position: relative; display: grid; grid-template-columns: 105px 1fr 30px; gap: 24px; align-items: center; padding: 24px; color: var(--ink); background: var(--cream); border: 1px solid var(--line); text-decoration: none; overflow: hidden; transition: transform .25s, box-shadow .25s, border-color .25s; }
+.institution-item::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 5px; background: var(--red); }
+.institution-item:hover { transform: translateY(-4px); border-color: rgba(189,61,43,.38); box-shadow: var(--shadow); }
 .institution-item + .institution-item { border-left: 1px solid var(--line); }
-.institution-item span { padding-top: 4px; color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-.institution-item strong { font-family: var(--serif); font-size: 18px; font-weight: 400; line-height: 1.45; }
+.institution-logo { width: 100px; height: 100px; display: grid; place-items: center; padding: 5px; background: #fff; border-radius: 50%; overflow: hidden; }
+.institution-logo img { width: 100%; height: 100%; object-fit: contain; }
+.institution-copy { display: block; }
+.institution-copy small { display: block; margin-bottom: 7px; color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.institution-copy strong { display: block; font-family: var(--serif); font-size: 18px; font-weight: 400; line-height: 1.4; }
+.institution-arrow { width: 30px; height: 30px; display: grid; place-items: center; color: var(--white); background: var(--green); border-radius: 50%; font-size: 15px; }
 .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 35px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .value-card { position: relative; min-height: 245px; padding: 38px 40px; border-right: 1px solid var(--line); }
 .value-card:last-child { border-right: 0; }
@@ -103,11 +110,12 @@ button { font: inherit; }
 .value-card h3 { margin: 42px 0 12px; font-family: var(--serif); font-size: 29px; }
 .value-card p { margin: 0; font-size: 14px; }
 
-.nominations { background: #e9dfcf; }
+.nominations { position: relative; background: linear-gradient(135deg, #f0d7aa 0%, #ead8c6 52%, #d8e5da 100%); }
+.nominations::before { content: ""; position: absolute; width: 280px; height: 280px; left: -140px; bottom: 70px; border: 28px solid rgba(189,61,43,.09); transform: rotate(45deg); }
 .heading-row { display: flex; align-items: end; justify-content: space-between; gap: 80px; margin-bottom: 55px; }
 .heading-row > p { width: 380px; margin: 0 0 4px; }
 .nomination-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.nomination-card { --accent: var(--gold); position: relative; min-height: 475px; display: flex; flex-direction: column; padding: 29px 32px 27px; background: var(--paper); border-top: 5px solid var(--accent); overflow: hidden; transition: transform .25s, box-shadow .25s; }
+.nomination-card { --accent: var(--gold); position: relative; min-height: 475px; display: flex; flex-direction: column; padding: 29px 32px 27px; color: var(--ink); background: rgba(255,253,248,.94); border-top: 5px solid var(--accent); text-decoration: none; overflow: hidden; transition: transform .25s, box-shadow .25s; }
 .nomination-card::after { content: ""; position: absolute; width: 210px; height: 210px; right: -90px; top: 80px; border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); border-radius: 50%; box-shadow: 0 0 0 25px color-mix(in srgb, var(--accent) 4%, transparent), 0 0 0 51px color-mix(in srgb, var(--accent) 3%, transparent); }
 .nomination-card:hover { transform: translateY(-5px); box-shadow: 0 22px 55px rgba(48,42,31,.1); }
 .card-green { --accent: var(--green-soft); }
@@ -121,7 +129,35 @@ button { font: inherit; }
 .card-type { margin: 24px 0 5px; color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .nomination-card h3 { margin: 0 0 12px; font-family: var(--serif); font-size: clamp(30px, 3.5vw, 44px); font-weight: 400; line-height: 1.08; }
 .nomination-card > p:not(.card-type) { max-width: 470px; margin: 0 0 25px; font-size: 15px; }
-.nomination-card footer { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; font-weight: 800; }
+.nomination-card footer { display: flex; justify-content: space-between; gap: 15px; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; font-weight: 800; }
+.nomination-card footer b { color: var(--accent); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+
+.examples { position: relative; background: #fffaf0; overflow: hidden; }
+.folk-ribbon { position: absolute; inset: 0 0 auto; height: 18px; background-color: var(--red); background-image: linear-gradient(45deg, transparent 42%, #fff0ce 42% 58%, transparent 58%), linear-gradient(-45deg, transparent 42%, #fff0ce 42% 58%, transparent 58%); background-size: 36px 36px; }
+.examples-grid { display: grid; gap: 34px; }
+.example-card { scroll-margin-top: 105px; display: grid; grid-template-columns: 1.1fr .9fr; min-height: 390px; background: var(--white); box-shadow: 0 18px 55px rgba(64,45,28,.1); }
+.example-card:nth-child(even) { grid-template-columns: .9fr 1.1fr; }
+.example-card:nth-child(even) .example-picture { order: 2; }
+.example-picture { min-height: 390px; overflow: hidden; }
+.example-picture svg { width: 100%; height: 100%; object-fit: cover; }
+.example-copy { position: relative; display: flex; flex-direction: column; justify-content: center; padding: 45px 50px; overflow: hidden; }
+.example-copy::after { content: ""; position: absolute; width: 130px; height: 130px; right: -66px; bottom: -66px; border: 18px solid color-mix(in srgb, var(--example-accent) 14%, transparent); transform: rotate(45deg); }
+.example-copy > span { color: var(--example-accent); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.example-copy h3 { margin: 12px 0 15px; font-family: var(--serif); font-size: clamp(32px, 4vw, 50px); font-weight: 400; line-height: 1; }
+.example-copy p { margin: 0 0 24px; font-size: 15px; }
+.example-copy a { align-self: flex-start; color: var(--example-accent); font-size: 12px; font-weight: 800; text-underline-offset: 5px; text-transform: uppercase; }
+.example-yellow { --example-accent: #b36c05; }
+.example-green { --example-accent: #3f704b; }
+.example-blue { --example-accent: #286f82; }
+.example-red { --example-accent: var(--red); }
+.pattern-picture { position: relative; display: grid; place-items: center; background-color: #287c8e; background-image: linear-gradient(45deg, rgba(255,255,255,.08) 25%, transparent 25% 75%, rgba(255,255,255,.08) 75%), linear-gradient(-45deg, rgba(255,255,255,.08) 25%, transparent 25% 75%, rgba(255,255,255,.08) 75%); background-size: 50px 50px; }
+.folk-flower { position: relative; width: 210px; height: 210px; }
+.folk-flower i { position: absolute; width: 82px; height: 112px; left: 64px; top: 0; background: #ffcf4f; border-radius: 60% 15% 60% 15%; transform-origin: 41px 105px; }
+.folk-flower i:nth-child(2) { transform: rotate(72deg); background: #f2633d; }
+.folk-flower i:nth-child(3) { transform: rotate(144deg); background: #ffd76b; }
+.folk-flower i:nth-child(4) { transform: rotate(216deg); background: #f2633d; }
+.folk-flower i:nth-child(5) { transform: rotate(288deg); }
+.folk-flower b { position: absolute; z-index: 2; width: 72px; height: 72px; left: 69px; top: 69px; border: 12px solid #fff2cc; border-radius: 50%; background: var(--red); }
 
 .participation { color: var(--white); background: var(--green); }
 .participation-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 110px; }
@@ -225,6 +261,8 @@ button { font: inherit; }
   .value-card { min-height: 190px; border-right: 0; border-bottom: 1px solid var(--line); }
   .value-card:last-child { border-bottom: 0; }
   .participation-layout { grid-template-columns: 1fr; gap: 65px; }
+  .example-card, .example-card:nth-child(even) { grid-template-columns: 1fr; }
+  .example-card:nth-child(even) .example-picture { order: 0; }
   .participation-aside { position: static; }
   .results-panel { grid-template-columns: 1fr; gap: 35px; padding: 60px; }
   .results-art { width: 220px; height: 220px; }
@@ -255,13 +293,19 @@ button { font: inherit; }
   .intro-copy { padding-top: 0; }
   .intro-copy .lead { font-size: 22px; }
   .institutions { margin-top: 45px; }
-  .institution-item { grid-template-columns: 1fr; gap: 8px; padding: 25px; }
+  .institution-item { grid-template-columns: 74px 1fr 28px; gap: 14px; padding: 18px; }
+  .institution-logo { width: 70px; height: 70px; }
+  .institution-copy strong { font-size: 15px; }
   .values-grid { margin-top: 50px; }
   .value-card { padding-inline: 25px; }
   .heading-row { display: block; margin-bottom: 38px; }
   .heading-row > p { width: auto; margin-top: 24px; }
   .nomination-grid { grid-template-columns: 1fr; }
   .nomination-card { min-height: 450px; padding: 25px; }
+  .nomination-card footer { align-items: flex-start; flex-direction: column; }
+  .example-picture { min-height: 270px; }
+  .example-copy { padding: 34px 25px; }
+  .folk-flower { transform: scale(.78); }
   .participation-layout { gap: 55px; }
   .steps li { grid-template-columns: 45px 1fr; gap: 18px; }
   .step-number { width: 44px; height: 44px; }
