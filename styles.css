@@ -91,7 +91,12 @@ button { font: inherit; }
 .intro-copy { padding-top: 25px; }
 .intro-copy p { max-width: 690px; }
 .intro-copy .lead { margin-top: 0; font-family: var(--serif); font-size: 26px; line-height: 1.42; }
-.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 75px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.institutions { display: grid; grid-template-columns: .9fr 1.1fr; margin-top: 70px; border: 1px solid var(--line); background: var(--cream); }
+.institution-item { display: grid; grid-template-columns: 115px 1fr; gap: 24px; align-items: start; padding: 30px 34px; }
+.institution-item + .institution-item { border-left: 1px solid var(--line); }
+.institution-item span { padding-top: 4px; color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.institution-item strong { font-family: var(--serif); font-size: 18px; font-weight: 400; line-height: 1.45; }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 35px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .value-card { position: relative; min-height: 245px; padding: 38px 40px; border-right: 1px solid var(--line); }
 .value-card:last-child { border-right: 0; }
 .value-number { position: absolute; right: 26px; top: 23px; color: rgba(24,53,47,.18); font-family: var(--serif); font-size: 46px; }
@@ -214,6 +219,8 @@ button { font: inherit; }
   .hero-meta > div:first-child { grid-column: 1 / -1; }
   .hero-meta > div:nth-child(2) { padding-left: 0; border-left: 0; }
   .intro-grid, .requirements-grid, .documents-grid { grid-template-columns: 1fr; gap: 45px; }
+  .institutions { grid-template-columns: 1fr; }
+  .institution-item + .institution-item { border-top: 1px solid var(--line); border-left: 0; }
   .values-grid { grid-template-columns: 1fr; }
   .value-card { min-height: 190px; border-right: 0; border-bottom: 1px solid var(--line); }
   .value-card:last-child { border-bottom: 0; }
@@ -247,6 +254,8 @@ button { font: inherit; }
   .intro-grid { gap: 30px; }
   .intro-copy { padding-top: 0; }
   .intro-copy .lead { font-size: 22px; }
+  .institutions { margin-top: 45px; }
+  .institution-item { grid-template-columns: 1fr; gap: 8px; padding: 25px; }
   .values-grid { margin-top: 50px; }
   .value-card { padding-inline: 25px; }
   .heading-row { display: block; margin-bottom: 38px; }

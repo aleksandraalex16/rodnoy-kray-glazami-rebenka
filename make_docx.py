@@ -175,7 +175,7 @@ while i < len(lines):
     paragraph = doc.add_paragraph()
     if re.match(r"^\d+\.\d+\.", stripped):
         paragraph.paragraph_format.first_line_indent = Cm(1.25)
-    if stripped.startswith("**Организатор:") or stripped.startswith("**Сроки проведения:") or stripped.startswith("**Место проведения:") or stripped.startswith("**Формат:"):
+    if stripped.startswith("**Учредитель:") or stripped.startswith("**Организатор:") or stripped.startswith("**Сроки проведения:") or stripped.startswith("**Место проведения:") or stripped.startswith("**Формат:"):
         paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
     add_inline_markdown(paragraph, stripped.replace("  ", ""))
     i += 1
@@ -195,6 +195,6 @@ for section in doc.sections:
 
 doc.core_properties.title = "Республиканский конкурс детского творчества «Родной край — глазами ребенка»"
 doc.core_properties.subject = "Проект и положение о конкурсе"
-doc.core_properties.author = "Организатор конкурса"
+doc.core_properties.author = "Луганский центр народного творчества"
 doc.save(OUTPUT)
 print(OUTPUT)
