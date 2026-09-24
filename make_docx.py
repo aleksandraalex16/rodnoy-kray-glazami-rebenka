@@ -7,7 +7,7 @@ from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT, WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.shared import Cm, Pt
+from docx.shared import Cm, Inches, Pt
 
 
 SOURCE = Path("Проект_конкурса_Родной_край_глазами_ребенка.md")
@@ -103,6 +103,14 @@ while i < len(lines):
         i += 1
         continue
 
+    image_match = re.match(r"!\[[^\]]*\]\(([^)]+)\)", stripped)
+    if image_match:
+        paragraph = doc.add_paragraph()
+        paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        paragraph.add_run().add_picture(image_match.group(1), width=Inches(2.2))
+        i += 1
+        continue
+
     if stripped.startswith("|") and i + 1 < len(lines) and re.match(r"^\|[\s:|-]+\|$", lines[i + 1].strip()):
         rows = []
         while i < len(lines) and lines[i].strip().startswith("|"):
@@ -195,6 +203,6 @@ for section in doc.sections:
 
 doc.core_properties.title = "Республиканский конкурс детского творчества «Родной край — глазами ребенка»"
 doc.core_properties.subject = "Проект и положение о конкурсе"
-doc.core_properties.author = "Луганский центр народного творчества"
+doc.core_properties.author = "Луганский республиканский центр народного творчества"
 doc.save(OUTPUT)
 print(OUTPUT)

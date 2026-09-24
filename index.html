@@ -20,7 +20,7 @@
           <a href="https://mk.lpr-reg.ru/" target="_blank" rel="noopener noreferrer" aria-label="Официальный сайт Министерства культуры Луганской Народной Республики" title="Министерство культуры ЛНР">
             <img src="Логотип МК ЛНР.jpg" alt="Логотип Министерства культуры ЛНР">
           </a>
-          <a href="http://lcnt-lug.ru/" target="_blank" rel="noopener noreferrer" aria-label="Официальный сайт Луганского центра народного творчества" title="Луганский центр народного творчества">
+          <a href="http://lcnt-lug.ru/" target="_blank" rel="noopener noreferrer" aria-label="Официальный сайт Луганского республиканского центра народного творчества" title="Луганский республиканский центр народного творчества">
             <img src="Логотип ЛРЦНТ .jpg" alt="Логотип ЛРЦНТ">
           </a>
         </div>
@@ -118,7 +118,7 @@
           <span class="institution-arrow" aria-hidden="true">↗</span>
         </a>
         <a class="institution-item" href="http://lcnt-lug.ru/" target="_blank" rel="noopener noreferrer" aria-label="Открыть официальный сайт Луганского центра народного творчества">
-          <span class="institution-copy"><small>Организатор</small><strong>ГБУК ЛНР «Луганский центр народного творчества»</strong></span>
+          <span class="institution-copy"><small>Организатор</small><strong>ГБУК ЛНР «Луганский республиканский центр народного творчества»</strong></span>
           <span class="institution-arrow" aria-hidden="true">↗</span>
         </a>
       </div>
@@ -267,7 +267,10 @@
           <p class="eyebrow eyebrow-light"><span></span> Как участвовать</p>
           <h2>От замысла<br>до выставки</h2>
           <p>Материалы направляет учреждение культурно-досугового типа. Участие бесплатное.</p>
-          <a class="button button-light" href="Проект_конкурса_Родной_край_глазами_ребенка.docx" download>Скачать положение</a>
+          <div class="participation-actions">
+            <a class="button button-light" href="Проект_конкурса_Родной_край_глазами_ребенка.docx" download>Скачать положение</a>
+            <a class="button button-outline-light" href="#application">Заполнить заявку</a>
+          </div>
         </div>
 
         <ol class="steps">
@@ -288,6 +291,43 @@
             <div><h3>Передайте учреждению</h3><p>Руководитель клубного формирования направит полный комплект организатору в объявленные сроки.</p></div>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <section class="application section" id="application">
+      <div class="container application-layout">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Онлайн-заявка</p>
+          <h2>Присоединяйтесь<br>к конкурсу</h2>
+          <p>Заполните форму на сайте. После отправки будет сформирован файл с заявкой, который нужно передать руководителю клубного формирования.</p>
+          <div class="application-note"><strong>Важно</strong><span>Одна заявка оформляется на одного участника и одну номинацию.</span></div>
+        </div>
+        <form class="application-form reveal" data-application-form>
+          <div class="form-row">
+            <label>Муниципальное образование<input name="municipality" required placeholder="Например, Луганский городской округ"></label>
+            <label>Учреждение<input name="institution" required placeholder="Название учреждения культуры"></label>
+          </div>
+          <div class="form-row">
+            <label>Фамилия, имя, отчество участника<input name="participant" required></label>
+            <label>Дата рождения<input name="birthdate" type="date" required></label>
+          </div>
+          <div class="form-row">
+            <label>Номинация<select name="nomination" required><option value="" selected disabled>Выберите номинацию</option><option>«Мой край родной»</option><option>«Уголок малой родины»</option><option>«Народные узоры»</option><option>«Семейная реликвия»</option></select></label>
+            <label>Возрастная категория<select name="age" required><option value="" selected disabled>Выберите категорию</option><option>7–10 лет</option><option>11–14 лет</option><option>7–14 лет (семья)</option></select></label>
+          </div>
+          <div class="form-row">
+            <label>Название работы<input name="work" required></label>
+            <label>Техника, материалы<input name="technique" required placeholder="Например, гуашь на бумаге"></label>
+          </div>
+          <div class="form-row">
+            <label>ФИО руководителя<input name="leader" required></label>
+            <label>Телефон или электронная почта<input name="contact" required type="text"></label>
+          </div>
+          <label class="form-full">Комментарий или описание работы<textarea name="description" rows="4" placeholder="Для «Народных узоров» добавьте краткое описание, для «Семейной реликвии» — историю реликвии."></textarea></label>
+          <label class="consent"><input type="checkbox" name="consent" required><span>Я подтверждаю достоверность сведений и согласен(на) с обработкой персональных данных и условиями конкурса.</span></label>
+          <button class="button button-primary" type="submit">Сформировать заявку</button>
+          <p class="form-status" data-form-status role="status"></p>
+        </form>
       </div>
     </section>
 
