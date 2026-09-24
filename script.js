@@ -24,16 +24,6 @@ navigation.querySelectorAll('a').forEach((link) => {
   });
 });
 
-document.querySelectorAll('[data-accordion] button').forEach((button) => {
-  button.addEventListener('click', () => {
-    const content = button.nextElementSibling;
-    const isOpen = button.getAttribute('aria-expanded') === 'true';
-
-    button.setAttribute('aria-expanded', String(!isOpen));
-    content.hidden = isOpen;
-  });
-});
-
 const applicationForm = document.querySelector('[data-application-form]');
 const formStatus = document.querySelector('[data-form-status]');
 
